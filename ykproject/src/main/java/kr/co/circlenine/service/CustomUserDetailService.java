@@ -26,6 +26,10 @@ public class CustomUserDetailService implements UserDetailsService{
 		
 		Map<String, Object> dbMember = memberDao.selectOneById(memberId);
 		
+		if(dbMember == null) {
+			return null;
+		}
+		
 		Member member = new Member(dbMember);
 		//authorities 가서 해당 멤버 아이디 가져오기
 		

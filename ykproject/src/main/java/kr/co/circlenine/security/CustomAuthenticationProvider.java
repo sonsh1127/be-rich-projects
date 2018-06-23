@@ -1,5 +1,6 @@
 package kr.co.circlenine.security;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -40,7 +42,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		UsernamePasswordAuthenticationToken authToken = (UsernamePasswordAuthenticationToken) authentication;
 		String memberId = authentication.getName();
 		String password =(String)authentication.getCredentials();
-		
+		System.out.println("id : " + memberId);
+		System.out.println("pssword : " + password);
 		Member member = (Member)userDetailService.loadUserByUsername(memberId) ;
 		System.out.println("authToken : " + authToken);
 		if(member == null) {
@@ -50,6 +53,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		if(!passwordEncoder.matches(password, member.getPassword())) {
 			throw new BadCredentialsException("not matching username or password");
 		}else {
+			
+//			Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+
+//			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 			
 			List<? extends GrantedAuthority> authorities = (List<GrantedAuthority>) member.getAuthorities();
 			System.out.println("authorities : " + authorities);
