@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@media(max-width: 600px){
+	.basic_div{
+		height: 170px;
+		background-color:lavender;
+	}
+	
+	.ykproject-sm-3{
+		width: 180px;
+	}
+}

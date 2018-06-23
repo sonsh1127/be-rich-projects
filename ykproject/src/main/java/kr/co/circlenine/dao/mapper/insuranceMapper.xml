@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.circlenine.dao.InsuranceDao">
+	
+	<select id="selectOne" parameterType="int" resultType="map">
+		SELECT * 
+		  FROM insure_info
+		 WHERE insure_key = #{insure_key}
+	</select>
+	
+	<select id="selectAll" resultType="map">
+		select * from insure_info
+	</select>
+	
+<!-- 	<resultMap type="map" id="insureMap"> -->
+<!-- 		<result property="insure_key" column="insure_key"/> -->
+<!-- 		<result property="insure_name" column="insure_name"/> -->
+<!-- 		<result property="insure_code" column="insure_code"/> -->
+<!-- 		<result property="insure_type" column="insure_type"/> -->
+<!-- 		<result property="attribute1" column="attribute1"/> -->
+<!-- 		<result property="attribute2" column="attribute2"/> -->
+<!-- 		<result property="attribute3" column="attribute3"/> -->
+<!-- 	</resultMap> -->
+</mapper>
