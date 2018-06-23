@@ -54,13 +54,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 			throw new BadCredentialsException("not matching username or password");
 		}else {
 			
-//			Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-
-//			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+			Collection<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 			
-			List<? extends GrantedAuthority> authorities = (List<GrantedAuthority>) member.getAuthorities();
-			System.out.println("authorities : " + authorities);
-			authToken = new UsernamePasswordAuthenticationToken(member,null, authorities);
+//			List<? extends GrantedAuthority> authorities = (List<GrantedAuthority>) member.getAuthorities();
+//			System.out.println("authorities : " + authorities);
+//			authToken = new UsernamePasswordAuthenticationToken(member,null, authorities);
 			System.out.println("authToken22222 : " + authToken);
 			return authToken;
 		}
