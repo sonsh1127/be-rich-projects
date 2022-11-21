@@ -6,4 +6,8 @@
 
 자신이 만든 프로젝트 커밋시 빌드 디렉토리랑 ide 관련 설정(eclipse, intellij, etc...) 는 제외하고 올리기 ~
 
+### 임창목
 
+- Algorithm 풀이 작성
+
+- 
